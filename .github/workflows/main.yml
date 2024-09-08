@@ -33,4 +33,4 @@ jobs:
       run: cd test-02 && echo "FROM yrajm1997/titanic-api:latest" >> Dockerfile
     
     - name: Push changes
-      run: cd test-02 && git push --force
+      run: cd test-02 && git push --force origin main
