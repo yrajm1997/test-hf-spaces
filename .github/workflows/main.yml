@@ -11,19 +11,16 @@ jobs:
     strategy:
       fail-fast: false
     steps:
-#    - uses: actions/checkout@v3
-    - name: Set up Python 3.10
-      uses: actions/setup-python@v3
-      with:
-        python-version: '3.10'
+    # - uses: actions/checkout@v3
+    # - name: Set up Python 3.10
+    #   uses: actions/setup-python@v3
+    #   with:
+    #     python-version: '3.10'
 
     - name: Clone HF Space repo
       run: git clone https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
-    
-#    - name: move inside repo
-#      run: cd test-02 && echo "FROM yrajm1997/titanic-api:latest" >> Dockerfile && cat Dockerfile
-    
-    - name: Set HF Space repo
+        
+    - name: Set remote origin
       working-directory: ./test-02
       run: git remote set-url origin https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
     
@@ -33,7 +30,7 @@ jobs:
     
     - name: Update Dockerfile
       working-directory: ./test-02
-      run: echo "FROM yrajm1997/titanic-api:latest" >> Dockerfile
+      run: echo "FROM yrajm1997/titanic-api" >> Dockerfile
     
     - name: Commit changes
       working-directory: ./test-02
