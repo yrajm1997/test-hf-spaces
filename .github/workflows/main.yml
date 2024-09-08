@@ -20,17 +20,25 @@ jobs:
     - name: Clone HF Space repo
       run: git clone https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
     
-    - name: move inside repo
-      run: cd test-02 && echo "FROM yrajm1997/titanic-api:latest" >> Dockerfile && cat Dockerfile
+#    - name: move inside repo
+#      run: cd test-02 && echo "FROM yrajm1997/titanic-api:latest" >> Dockerfile && cat Dockerfile
     
-    # - name: Set HF Space repo
-    #   run: cd test-02 && git remote set-url origin https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
+    - name: Set HF Space repo
+      working-directory: ./test-02
+      run: git remote set-url origin https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
     
-    # - name: Delete Dockerfile
-    #   run: cd test-02 && if [ -f Dockerfile ] ; then rm Dockerfile ; fi
+    - name: Delete Dockerfile if exists
+      working-directory: ./test-02
+      run: if [ -f Dockerfile ] ; then rm Dockerfile ; fi
     
-    # - name: Update Dockerfile
-    #   run: cd test-02 && echo "FROM yrajm1997/titanic-api:latest" >> Dockerfile
+    - name: Update Dockerfile
+      working-directory: ./test-02
+      run: echo "FROM yrajm1997/titanic-api:latest" >> Dockerfile
     
-    # - name: Push changes
-    #   run: cd test-02 && git push --force origin main
+    - name: Commit changes
+      working-directory: ./test-02
+      run: git commit -a -m "dockerfile updated"
+
+    - name: Push changes
+      working-directory: ./test-02
+      run: git push --force origin main
