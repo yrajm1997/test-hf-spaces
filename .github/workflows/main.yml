@@ -40,7 +40,8 @@ jobs:
       run: |
         git config --global user.email "yrajm1997@gmail.com"
         git config --global user.name "yrajm1997"
-        git commit -a -m "dockerfile updated"
+        git add Dockerfile
+        git commit -m "dockerfile updated"
 
     - name: Push changes
       working-directory: ./test-02
