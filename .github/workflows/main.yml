@@ -20,6 +20,9 @@ jobs:
     - name: Clone HF Space repo
       run: git clone https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
     
+    - name: move inside repo
+      run: cd test-02
+    
     - name: Set HF Space repo
       run: git remote set-url origin https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
     
