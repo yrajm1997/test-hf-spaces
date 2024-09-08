@@ -20,17 +20,17 @@ jobs:
     - name: Clone HF Space repo
       run: git clone https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
     
-    - name: move inside repo
-      run: cd test-02
+#    - name: move inside repo
+#      run: cd test-02
     
     - name: Set HF Space repo
-      run: ls  #git remote set-url origin https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
+      run: cd test-02 && git remote set-url origin https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
     
-    # - name: Delete Dockerfile
-    #   run: if [ -f Dockerfile ] ; then rm Dockerfile ; fi
+    - name: Delete Dockerfile
+      run: cd test-02 && if [ -f Dockerfile ] ; then rm Dockerfile ; fi
     
-    # - name: Update Dockerfile
-    #   run: echo "FROM yrajm1997/titanic-api:latest" >> Dockerfile
+    - name: Update Dockerfile
+      run: cd test-02 && echo "FROM yrajm1997/titanic-api:latest" >> Dockerfile
     
-    # - name: Push changes
-    #   run: git push --force
+    - name: Push changes
+      run: cd test-02 && git push --force
