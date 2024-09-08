@@ -21,7 +21,7 @@ jobs:
       run: git clone https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
     
     - name: move inside repo
-      run: cd test-02 && ls
+      run: cd test-02 && echo "FROM yrajm1997/titanic-api:latest" >> Dockerfile && ls
     
     # - name: Set HF Space repo
     #   run: cd test-02 && git remote set-url origin https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
