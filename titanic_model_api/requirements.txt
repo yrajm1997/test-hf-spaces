@@ -1,0 +1,14 @@
+uvicorn>=0.16.0,<0.18.0
+fastapi>=0.64.0,<1.0.0
+pydantic #>=1.8.1,<2.0.0
+requests>=2.23.0,<2.24.0
+
+gradio==3.36.1        # gives a friendly web interface
+
+prometheus-client      # for monitoring purpose
+
+# If locally copied whl file inside titanic_model_api then use given below
+titanic_model-0.0.1-py3-none-any.whl
+
+# After uploding your package in PyPI use the given below           PyPI - Python Package Index
+#titanic-model==0.0.1
