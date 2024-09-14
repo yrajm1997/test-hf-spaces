@@ -103,28 +103,28 @@ jobs:
       run: docker logout
 
 
-  deploy:
+  spaces-deploy:
     needs: [train, test, build, push-image]
     runs-on: ubuntu-latest
     strategy:
       fail-fast: false
     steps:
     - name: Clone HF Space repo
-      run: git clone https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
+      run: git clone https://yrajm1997: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@huggingface.co/spaces/yrajm1997/sep14-demo-3
         
     - name: Set remote origin
-      working-directory: ./test-02
-      run: git remote set-url origin https://yrajm1997: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@huggingface.co/spaces/yrajm1997/test-02
+      working-directory: ./sep14-demo-3
+      run: git remote set-url origin https://yrajm1997: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@huggingface.co/spaces/yrajm1997/sep14-demo-3
     
     - name: Update Dockerfile
-      working-directory: ./test-02
+      working-directory: ./sep14-demo-3
       run: |
         if grep -q "latest" Dockerfile ; then TEXT="FROM yrajm1997/titanic-api" ; else TEXT="FROM yrajm1997/titanic-api:latest" ; fi
         if [[ -f Dockerfile ]] ; then rm Dockerfile ; fi
         echo "$TEXT" >> Dockerfile
     
     - name: Commit changes
-      working-directory: ./test-02
+      working-directory: ./sep14-demo-3
       run: |
         git config --global user.email "yrajm1997@gmail.com"
         git config --global user.name "yrajm1997"
@@ -132,6 +132,6 @@ jobs:
         git commit -m "dockerfile updated"
 
     - name: Push changes
-      working-directory: ./test-02
+      working-directory: ./sep14-demo-3
       run: git push --force origin main
 
