@@ -111,7 +111,7 @@ def get_output_label(in_Pid, in_Pclass, in_Pname, in_sex, in_age, in_sibsp, in_p
 iface = gradio.Interface(fn = get_output_label,
                          inputs = [in_Pid, in_Pclass, in_Pname, in_sex, in_age, in_sibsp, in_parch, in_ticket, in_cabin, in_embarked, in_fare],
                          outputs = [out_label],
-                         title="Titanic Survival Prediction API  ⛴",
+                         title="Titanic Survival Prediction API 2.0  ⛴",
                          description="Predictive model that answers the question: “What sort of people were more likely to survive?”",
                          allow_flagging='never',
                          )
