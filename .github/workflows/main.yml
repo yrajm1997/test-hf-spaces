@@ -121,7 +121,6 @@ jobs:
         HF_USER: ${{ secrets.HF_USER_NAME }}
         HF_TOKEN: ${{ secrets.HF_TOKEN }}
         HF_SPACE: ${{ secrets.HF_SPACE_NAME }}
-      #working-directory: ./$HF_SPACE
       run: |
         cd $HF_SPACE
         git remote set-url origin https://$HF_USER:$HF_TOKEN@huggingface.co/spaces/$HF_USER/$HF_SPACE
@@ -130,7 +129,6 @@ jobs:
       env:
         HF_SPACE: ${{ secrets.HF_SPACE_NAME }}
         DOCKER_USER: ${{ secrets.DOCKER_USER_NAME }}
-      #working-directory: ./$HF_SPACE
       run: |
         cd $HF_SPACE
         if grep -q "latest" Dockerfile ; then TEXT="FROM $DOCKER_USER/titanic-api" ; else TEXT="FROM $DOCKER_USER/titanic-api:latest" ; fi
@@ -142,7 +140,6 @@ jobs:
         HF_USER: ${{ secrets.HF_USER_NAME }}
         USER_EMAIL: ${{ secrets.USER_EMAIL }}
         HF_SPACE: ${{ secrets.HF_SPACE_NAME }}
-      #working-directory: ./$HF_SPACE
       run: |
         cd $HF_SPACE
         git config --global user.email "$USER_EMAIL"
@@ -153,7 +150,6 @@ jobs:
     - name: Push changes
       env:
         HF_SPACE: ${{ secrets.HF_SPACE_NAME }}
-      #working-directory: ./$HF_SPACE
       run: |
         cd $HF_SPACE
         git push --force origin main
